@@ -3,9 +3,8 @@ import { devtools, persist, subscribeWithSelector } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
 import { createUserSlice } from '@/store/user-slice';
+import { createCartSlice } from '@/store/cart-slice';
 import { type Store } from '@/types/store';
-
-import { createCartSlice } from './cart-slice';
 
 export const useStore = create<Store>()(
   devtools(
