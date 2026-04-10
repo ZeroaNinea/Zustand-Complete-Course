@@ -2,6 +2,7 @@ import { type StateCreator } from 'zustand';
 
 import { type CartProduct } from '@/types/cartProduct';
 import { type Product } from '@/types/product';
+import type { Store } from '@/types/store';
 
 type CartState = {
   products: CartProduct[];
@@ -25,7 +26,7 @@ const initialState: CartState = {
   total: 0,
 };
 export const createCartSlice: StateCreator<
-  CartSlice,
+  Store,
   [['zustand/immer', never]],
   [],
   CartSlice
