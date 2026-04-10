@@ -5,7 +5,7 @@ import { immer } from 'zustand/middleware/immer';
 import { createUserSlice } from '@/store/user-slice';
 import { type Store } from '@/types/store';
 
-// import { createCartSlice } from './cart-slice';
+import { createCartSlice } from './cart-slice';
 
 export const useStore = create<Store>()(
   devtools(
@@ -13,7 +13,7 @@ export const useStore = create<Store>()(
       subscribeWithSelector(
         immer((...a) => ({
           ...createUserSlice(...a),
-          // ...createCartSlice(...a),
+          ...createCartSlice(...a),
         })),
       ),
       {
