@@ -1,7 +1,7 @@
 import { type StateCreator } from 'zustand';
 
-import { type CartProduct } from '../types/cartProduct';
-import { type Product } from '../types/product';
+import { type CartProduct } from '@/types/cartProduct';
+import { type Product } from '@/types/product';
 
 type CartState = {
   products: CartProduct[];
