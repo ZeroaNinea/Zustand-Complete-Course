@@ -24,13 +24,13 @@ function App() {
         <div>
           <button
             onClick={store.inc}
-            className="rounded-md p-2 m-3 bg-blue-300 hover:bg-blue-400 text-white active:bg-blue-500 cursor-pointer"
+            className="rounded-md p-2 m-3 bg-blue-400 hover:bg-blue-500 text-white active:bg-blue-400 cursor-pointer"
           >
             Increment
           </button>
           <button
             onClick={store.dec}
-            className="rounded-md p-2 m-3 bg-blue-300 hover:bg-blue-400 text-white active:bg-blue-500 cursor-pointer"
+            className="rounded-md p-2 m-3 bg-blue-400 hover:bg-blue-500 text-white active:bg-blue-400 cursor-pointer"
           >
             Decrement
           </button>
