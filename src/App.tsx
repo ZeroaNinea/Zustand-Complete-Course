@@ -20,7 +20,7 @@ import './App.css';
 // }));
 
 function App() {
-  const { address, count, inc, dec, addProduct } = useStore(
+  const { address, count, inc, dec, addProduct, cartProducts } = useStore(
     useShallow((state) => ({
       /* Counter */
       count: state.count,
@@ -32,7 +32,7 @@ function App() {
 
       /* Products */
       addProduct: state.addProduct,
-      products: state.products,
+      cartProducts: state.products,
     })),
   );
 
@@ -61,12 +61,16 @@ function App() {
                 </span>
               </div>
               <div>
-                <button
-                  onClick={() => addProduct(product)}
-                  className="rounded-md p-2 m-2 bg-green-400 hover:bg-green-500 active:bg-green-400 text-white cursor-pointer"
-                >
-                  Add to Cart <ShoppingCart className="inline" size={16} />
-                </button>
+                {cartProducts.find((item) => item.id === product.id) ? (
+                  <>change qty buttons</>
+                ) : (
+                  <button
+                    onClick={() => addProduct(product)}
+                    className="rounded-md p-2 m-2 bg-green-400 hover:bg-green-500 active:bg-green-400 text-white cursor-pointer"
+                  >
+                    Add to Cart <ShoppingCart className="inline" size={16} />
+                  </button>
+                )}
               </div>
             </div>
           ))}
