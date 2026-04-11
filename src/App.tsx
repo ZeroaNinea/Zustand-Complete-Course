@@ -23,6 +23,8 @@ function App() {
     })),
   );
 
+  // const address = useStore((state) => state.address);
+
   console.log(address);
 
   return <>{address}</>;
