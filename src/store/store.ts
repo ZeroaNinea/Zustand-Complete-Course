@@ -4,6 +4,7 @@ import { immer } from 'zustand/middleware/immer';
 
 import { createUserSlice } from '@/store/user-slice';
 import { createCartSlice } from '@/store/cart-slice';
+import { createCounterSlice } from '@/store/counter-slice';
 import { type Store } from '@/types/store';
 
 export const useStore = create<Store>()(
@@ -13,6 +14,7 @@ export const useStore = create<Store>()(
         immer((...a) => ({
           ...createUserSlice(...a),
           ...createCartSlice(...a),
+          ...createCounterSlice(...a),
         })),
       ),
       {
