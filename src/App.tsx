@@ -1,6 +1,6 @@
 import { useShallow } from 'zustand/react/shallow';
 
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Plus, Minus } from 'lucide-react';
 
 import { useStore } from '@/store/store';
 import { PRODUCTS_DATA } from '@/lib/mockData';
@@ -52,7 +52,9 @@ function App() {
               key={product.id}
               className="border border-gray-500 p-3 rounded-sm"
             >
-              <h4 className="font-semibold">{product.title}</h4>
+              <h4 className="font-bold text-xl text-cyan-950 cursor-pointer hover:underline">
+                {product.title}
+              </h4>
               <div>
                 <span className="font-semibold text-gray-500">
                   ${product.price}
@@ -77,16 +79,16 @@ function App() {
         </div>
         <div className="flex gap-3 mb-5">
           <button
-            onClick={inc}
-            className="rounded-md p-2 bg-blue-400 hover:bg-blue-500 text-white active:bg-blue-400 cursor-pointer"
-          >
-            Increment
-          </button>
-          <button
             onClick={dec}
             className="rounded-md p-2 bg-blue-400 hover:bg-blue-500 text-white active:bg-blue-400 cursor-pointer"
           >
-            Decrement
+            <Minus className="inline" size={16} /> Decrement
+          </button>
+          <button
+            onClick={inc}
+            className="rounded-md p-2 bg-blue-400 hover:bg-blue-500 text-white active:bg-blue-400 cursor-pointer"
+          >
+            Increment <Plus className="inline" size={16} />
           </button>
         </div>
       </section>
