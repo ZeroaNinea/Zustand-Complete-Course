@@ -5,6 +5,8 @@ import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { useStore } from '@/store/store';
 import { PRODUCTS_DATA } from '@/lib/mockData';
 
+import ChangeQtyButtons from '@/components/ui/change-qty-buttons';
+
 // import { create } from 'zustand';
 
 import './App.css';
@@ -60,9 +62,9 @@ function App() {
                   ${product.price}
                 </span>
               </div>
-              <div>
+              <div className="flex justify-end">
                 {cartProducts.find((item) => item.id === product.id) ? (
-                  <>change qty buttons</>
+                  <ChangeQtyButtons productId={product.id} />
                 ) : (
                   <button
                     onClick={() => addProduct(product)}
