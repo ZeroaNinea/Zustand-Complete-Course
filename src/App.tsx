@@ -54,7 +54,9 @@ function App() {
             >
               <h4 className="font-semibold">{product.title}</h4>
               <div>
-                <span>${product.price}</span>
+                <span className="font-semibold text-gray-500">
+                  ${product.price}
+                </span>
               </div>
               <div>
                 <button
