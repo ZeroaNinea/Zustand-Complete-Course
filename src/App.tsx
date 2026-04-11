@@ -1,3 +1,5 @@
+import { useShallow } from 'zustand/react/shallow';
+
 import { useStore } from '@/store/store';
 
 // import { create } from 'zustand';
@@ -15,11 +17,15 @@ import './App.css';
 // }));
 
 function App() {
-  const store = useStore();
+  const { address } = useStore(
+    useShallow((state) => ({
+      address: state.address,
+    })),
+  );
 
-  console.log(store);
+  console.log(address);
 
-  return <>{store.address}</>;
+  return <>{address}</>;
 
   // return (
   //   <>
