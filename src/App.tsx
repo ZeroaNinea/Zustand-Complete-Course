@@ -1,5 +1,7 @@
 import { useShallow } from 'zustand/react/shallow';
 
+import { ShoppingCart } from 'lucide-react';
+
 import { useStore } from '@/store/store';
 import { PRODUCTS_DATA } from '@/lib/mockData';
 
@@ -18,12 +20,19 @@ import './App.css';
 // }));
 
 function App() {
-  const { address, count, inc, dec } = useStore(
+  const { address, count, inc, dec, addProduct } = useStore(
     useShallow((state) => ({
-      address: state.address,
+      /* Counter */
       count: state.count,
       inc: state.inc,
       dec: state.dec,
+
+      /* Users */
+      address: state.address,
+
+      /* Products */
+      addProduct: state.addProduct,
+      products: state.products,
     })),
   );
 
@@ -44,6 +53,17 @@ function App() {
               className="border border-gray-500 p-3 rounded-sm"
             >
               <h4 className="font-semibold">{product.title}</h4>
+              <div>
+                <span>${product.price}</span>
+              </div>
+              <div>
+                <button
+                  onClick={() => addProduct(product)}
+                  className="rounded-md p-2 m-2 bg-green-400 hover:bg-green-500 active:bg-green-400 text-white cursor-pointer"
+                >
+                  Add to Cart <ShoppingCart className="inline" size={16} />
+                </button>
+              </div>
             </div>
           ))}
         </div>
